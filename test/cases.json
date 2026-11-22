@@ -1,0 +1,42 @@
+{
+ "tests": [
+  {
+   "in": {
+    "title": "Exchange 2019 CU15 update",
+    "system": "EX01, EX02 (DAG)",
+    "start": "2026-11-28T22:00",
+    "dur": 150,
+    "risk": "med",
+    "approvers": "CAB",
+    "steps": "10;Announce start, take VM snapshots\n15;Put EX01 in maintenance mode\n45;Install CU15 on EX01\n10;Exit maintenance mode, test mail flow\n20;Repeat on EX02 (abbreviated)",
+    "rollback": "15;Revert EX01 snapshot\n10;Exit maintenance mode and verify",
+    "checks": "OWA login"
+   },
+   "v": {
+    "impl": 100,
+    "rollback": 25,
+    "slack": 25
+   }
+  },
+  {
+   "in": {
+    "start": "2026-12-05T01:00",
+    "dur": 60,
+    "risk": "high",
+    "steps": "10;Backup config\n30;Upgrade firmware and reload\n10;Verify uplinks",
+    "rollback": "20;Boot previous image"
+   },
+   "v": {
+    "slack": -10
+   }
+  },
+  {
+   "in": {
+    "start": "2026-12-05T01:00",
+    "dur": 60,
+    "steps": "do it"
+   },
+   "err": "steps"
+  }
+ ]
+}

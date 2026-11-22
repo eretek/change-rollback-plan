@@ -1,0 +1,15 @@
+{
+  "name": "change-rollback-plan",
+  "version": "1.1.3",
+  "private": true,
+  "description": "Build a Markdown change plan with a timeline, point of no return for rollback and validation checklist from change steps; warns if the window is too short.",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://uyum.eretek.com/en/tools/change-rollback-plan",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node test/run.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
